@@ -13,7 +13,23 @@
     <tbody>
         <tr><td>Name</td><td>@Model.Name</td></tr>
         <tr><td>Price</td><td>@Model.Price</td></tr>
-        <tr><td>Stock Level</td><td>@ViewBag.ProductCount</td></tr>
+        <tr>
+            <td>Stock Level</td>
+            <td>
+                @if (ViewBag.ProductCount == 0)
+                {
+                    @:Out of Stock
+                }
+                else if (ViewBag.Productcount == 1)
+                {
+                    <b>Low Stock (@ViewBag.ProductCount)</b>
+                }
+                else
+                {
+                    @ViewBag.Productcount
+                }
+            </td>
+        </tr>
     </tbody>
 </table>
 
